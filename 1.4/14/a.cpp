@@ -10,19 +10,29 @@ int main()
 
     // cout << (int)1.3;
 
-    int n, x, y;
+    int n, x, y, pg;
     float _;
     cin >> n >> x >> y;
 
-    _ = y / x;
-    if (y%x == 0)
+    if (x == 0)
     {
-        cout << n - int(_);
+        cout << n;
+        return 0;
+    }
+
+    _ = y / x;
+    if (y % x == 0)
+    {
+        pg = n - int(_);
     }
     else
     {
-        cout << n - int(_) - 1;
+        pg = n - int(_) - 1;
     }
+    if (pg < 0)
+        printf("0");
+    else
+        printf("%d", pg);
 
     return 0;
 }
