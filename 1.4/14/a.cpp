@@ -10,29 +10,17 @@ int main()
 
     // cout << (int)1.3;
 
-    int n, x, y, pg;
-    float _;
-    cin >> n >> x >> y;
-
-    if (x == 0)
+    long long n, zj=0, zy=0, zt=0;
+    scanf("%lld", &n);
+    for (int i = 0; i < n; i++)
     {
-        cout << n;
-        return 0;
+        long long j, y, t;
+        scanf("%lld %lld %lld", &j, &y, &t);
+        zj += j;
+        zt += t;
+        zy += y;
     }
-
-    _ = y / x;
-    if (y % x == 0)
-    {
-        pg = n - int(_);
-    }
-    else
-    {
-        pg = n - int(_) - 1;
-    }
-    if (pg < 0)
-        printf("0");
-    else
-        printf("%d", pg);
+    printf("%lld %lld %lld %lld", zj, zy, zt, zj + zy + zt);
 
     return 0;
 }
