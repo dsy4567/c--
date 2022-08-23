@@ -1,100 +1,100 @@
 #include <iostream>
-#include <string.h>
+// #include <string.h>
+// #include <cmath>
 
 using namespace std;
 
-int n, m, img[101][101], img2[101][101];
-string s;
+// int nn;
+// string n;
 
-void ssz90()
-{
-	// cout << "A";
-	for (int j = 1; j <= n; j++)
-	{
-		for (int i = 1; i <= m; i++)
-		{
-			cout << img[i][j] << " ";
-		}
-		cout << endl;
-	}
-}
-void nsz90()
-{
-	// cout << "B";
-	for (int j = 1; j <= n; j++)
-	{
-		for (int i = 1; i <= m; i++)
-		{
-			cout << img[i][n - j + 1] << " ";
-		}
-		cout << endl;
-	}
-}
-void zyfz()
-{
-	// cout << "D";
-	for (int i = 1; i <= m; i++)
-	{
-		for (int j = n; j > 0; j--)
-		{
-			cout << img[i][j] << " ";
-		}
-		cout << endl;
-	}
-}
-void sxfz()
-{
-	// cout << "C";
-	for (int i = m; i > 0; i--)
-	{
-		for (int j = 1; j <= n; j++)
-		{
-			cout << img[i][j] << " ";
-		}
-		cout << endl;
-	}
-}
+// void ssz90()
+// {
+// 	// cout << "A";
+// 	// int hang = 0, lie = 0;
+// 	for (int j = 1; j <= n; j++)
+// 	{
+// 		// hang++;
+// 		for (int i = 1; i <= m; i++)
+// 		{
+// 			// lie++;
+// 			cout << img[i][j] << " ";
+// 			// img2[lie][hang] = img[i][j];
+// 		}
+// 		cout << endl;
+// 	}
+// }
+// void nsz90()
+// {
+// 	// int hang = 0, lie = 0;
+// 	// cout << "B";
+// 	for (int j = 1; j <= n; j++)
+// 	{
+// 		// hang++;
+// 		for (int i = 1; i <= m; i++)
+// 		{
+// 			// lie++;
+// 			cout << img[i][n - j + 1] << " ";
+// 			// img2[lie][hang] = img[i][j];
+// 		}
+// 		cout << endl;
+// 	}
+// }
+// void zyfz()
+// {
+// 	// int hang = 0, lie = 0;
+// 	// cout << "D";
+// 	for (int i = 1; i <= m; i++)
+// 	{
+// 		// hang++;
+// 		for (int j = n; j > 0; j--)
+// 		{
+// 			// lie++;
+// 			cout << img[i][j] << " ";
+// 			// img2[hang][lie] = img[i][j];
+// 		}
+// 		cout << endl;
+// 	}
+// }
+// void sxfz()
+// {
+// 	// int hang = 0, lie = 0;
+// 	// cout << "C";
+// 	for (int i = m; i > 0; i--)
+// 	{
+// 		// hang++;
+// 		for (int j = 1; j <= n; j++)
+// 		{
+// 			// lie++;
+// 			cout << img[i][j] << " ";
+// 			// img2[hang][lie] = img[i][j];
+// 		}
+// 		cout << endl;
+// 	}
+// }
+// int isZhiShu(int x)
+// {
+// 	if (x <= 1)
+// 		return false;
+// 	return isZhiShu(x - 1) * x;
+// }
 int main()
 {
-	freopen("in.txt", "r", stdin);
-	freopen("out.txt", "w", stdout);
+	// freopen("in.txt", "r", stdin);
+	// freopen("out.txt", "w", stdout);
 
-	cin >> n >> m;
-	for (int i = 1; i <= m; i++)
+	int j, x, max = 0;
+	scanf("%d", &x);
+	for (int i = 2; i <= x; i++)
 	{
-		for (int j = 1; j <= n; j++)
+		for (j = 2; j < i; j++)
 		{
-			cin >> img[i][j];
+			if (i % j == 0)
+				break;
 		}
+		if (j == i && x % i == 0 && i > max)
+			max = i;
 	}
-
-	// for (int i = 1; i <= m; i++)
-	// {
-	//     for (int j = 1; j <= n; j++)
-	//     {
-	//         cout << img[i][j] << " ";
-	//     }
-	//     cout << endl;
-	// }
-
-	cin >> s;
-
-	for (int i = 0; i < s.length() + 2; i++)
-	{
-		char cz = s[i];
-		// cout << cz;
-		if (cz == 65)
-			ssz90();
-		else if (cz == 66)
-			nsz90();
-		else if (cz == 67)
-			zyfz();
-		else if (cz == 68)
-			sxfz();
-		cout << endl;
-	}
-
-	return 0;
+	printf("%d", max);
 }
 
 /*
